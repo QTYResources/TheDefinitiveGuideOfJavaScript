@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>定义类</title>
+  </head>
+  <body>
+    <script>
+      // 定义一个构造函数以初始化一个新的 Point 对象
+      function Point(x, y) {        // 安装惯例， 构造函数均以大写字母开始
+        this.x = x                  // 关键字 this 指代初始化的实例
+        this.y = y                  // 将函数参数存储对象的属性
+      }                             // 不需要 return
+      // 使用 new 关键字和构造函数来创建一个实例
+      var p = new Point(1, 1)       // 平面几何中的点 (1, 1)
+      // 通过给构造函数的 prototype 对象赋值
+      // 来给 Point 对象定义方法
+      Point.prototype.r = function() {
+        return Math.sqrt(           // 返回 x^2 + y^2 的平方根
+            this.x * this.x  +      // this 指代调用这个方法的对象
+            this.y * this.y)
+      }
+      // Point 的实例对象 p (以及所有的 Point 实例对象) 继承了方法 r()
+      p.r()                         // => 1.414...
+      console.log(p.r())
+    </script>
+  </body>
+</html>

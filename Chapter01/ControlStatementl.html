@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>控制语句</title>
+  </head>
+  <body>
+    <script>
+      // 这些 JavaScript 语句使用该语法包含条件判断和循环
+      // 使用了类似 C、C++、Java 和其他语言的语法
+      function abs(x) {               // 求绝对值的函数
+        if (x >= 0) {                 // if 语句...
+          return x                    // 如果比较结果为 true 则执行这里的代码
+        } else {                      // 当 if 条件不满足时执行 else 子句
+          return -x                   
+        }
+      }
+      function factorial(n) {         // 计算阶乘的函数
+        var product = 1               // 给 product 赋值为 1
+        while (n > 1) {               // 当 () 内的表达式为 true 时循环执行 {} 内的代码
+          product *= n                // "product = product * n" 的简写形式
+          n--                         // "n = n - 1" 的简写形式
+        }                             // 循环结束
+        return product                // 返回 product
+      }
+      var result = factorial(4)       // => 24: 1 * 4 * 3 * 2
+      console.log(result)             // => 24
+      function factorial2(n) {        // 实现循环的另一种写法
+        var i, product = 1            // 给 product 赋值为 1
+        for (i = 2; i <= n; i++) {    // 将 i 从 2 自增至 n
+          product *= i                // 循环体，当循环体中只有一句代码，可以省略 {}
+        }
+        return product                // 返回计算好的阶乘
+      }
+      result = factorial2(5)          // => 120: 1 * 2 * 3 * 4 * 5
+      console.log(result)             // => 120
+    </script>
+  </body>
+</html>

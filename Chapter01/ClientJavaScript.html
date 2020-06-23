@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>客户端JavaScript</title>
+  </head>
+  <body>
+    <p>This is a paragraph of HTML</p>
+    <script>
+      // 在这里编写嵌入到 HTML 文件中的 JavaScript 代码
+      function moveon() {
+        // 通过弹出一个对话框来询问用户一个问题
+        var answer = confirm("准备好了吗？")
+        // 单击 "确定" 按钮，浏览器会加载一个新页面
+        if (answer) window.location = "https://www.baidu.com"
+      }
+      // 在 1 分钟（6万毫秒）后执行定义的这个函数
+      setTimeout(moveon, 60000)
+    </script>
+    <p>Here is more HTML.</p>
+  </body>
+</html>

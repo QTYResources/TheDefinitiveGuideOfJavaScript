@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>函数</title>
+  </head>
+  <body>
+    <script>
+      var y = 3
+
+      // 函数是一段带有参数的 JavaScript 代码段，可以多次调用
+      function plus1(x) {           // 定义了名为 plus1 的一个函数，带有参数 x
+        return x + 1                // 返回一个比传入的参数大的值
+      }                             // 函数的代码块是由花括号包裹起来的部分
+      var result = plus1(y)         // => 4: y 为 3，调用函数的结果为 3 + 1
+      console.log(result)
+      var square = function(x) {    // 函数是一种值，可以赋值给变量
+        return x * x                // 计算函数的值
+      }                             
+      result = square(plus1(y))     // => 16：在一个表达式中调用两个函数
+      console.log(result)
+    </script>
+  </body>
+</html>

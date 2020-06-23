@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>函数与对象结合</title>
+  </head>
+  <body>
+    <script>
+      var points = [                    // 具有两个元素的数组
+        {x: 0, y: 0},                   // 每个元素都是一个对象
+        {x: 1, y: 1}
+      ]
+
+      // 当函数赋值给对象的属性，我们称为
+      // "方法", 所有的 JavaScript 对象都含有方法
+      var a = []                        // 创建一个空数组
+      a.push(1, 2, 3)                   // push() 方法向数组中添加元素
+      a.reverse()                       // 另一个方法：将数组元素的次序反转
+      // 我们也可以定义自己的方法，"this" 关键字是对定义方法
+      // 的对象的引用：这里的例子是上文中提到的包含两个点位置信息的数组
+      points.dist = function() {        // 定义一个方法用来计算两点之间的距离
+        var p1 = this[0]                // 通过 this 获得对当前数组的引用
+        var p2 = this[1]                // 并取得调用的数组前两个元素
+        var a = p2.x - p1.x             // X 坐标轴上的距离
+        var b = p2.y - p1.y             // Y 坐标轴上的距离
+        return Math.sqrt(a * a + b * b) // 勾股定理，用 Math.sqrt() 来计算平方根
+      }
+      var dist = points.dist()          // => 1.414: 求得两个点之间的距离
+      console.log(dist)                 // => 1.4142135623730951
+    </script>
+  </body>
+</html>

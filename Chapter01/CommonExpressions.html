@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>常见表达式</title>
+  </head>
+  <body>
+    <script>
+      var points = [                    // 具有两个元素的数组
+        {x: 0, y: 0},                   // 每个元素都是一个对象
+        {x: 1, y: 1}
+      ]
+
+      // 运算符作用域操作数，生成一个新的值
+      // 最常见的是算术运算符
+      3 + 2                         // => 5: 加法
+      3 - 2                         // => 1: 减法
+      3 * 2                         // => 6: 乘法
+      3 / 2                         // => 1.5: 除法
+      points[1].x - points[0].x     // => 1: 更复杂的操作数也能照常工作
+      "3" + "2"                     // =>"32": + 可以完成加法运算也可以作字符串连接
+      // JavaScript 定义了一些算术运算符的简写形式
+      var count = 0                 // 定义一个变量
+      count++                       // 自增 1
+      count--                       // 自减 1
+      count += 2                    // 自增2：和 "count = count + 2" 写法一样
+      count *=3                     // 自乘3：和 "count = count * 3" 写法一样
+      count                         // => 6：变量本身也是一个表达式
+      // 相等关系运算符用来判断两值是否相等
+      // 不等、大于、小于运算符的运算结果是 true 或 false
+      var x = 2, y = 3              // 这里的 = 等号是赋值的意思，不是比较相等
+      x == y                        // => false：相等
+      x != y                        // => true：不等
+      x < y                         // => true: 小于
+      x <= y                        // => true： 小于等于
+      x > y                         // => false：大于
+      x >= y                        // => false：大于等于
+      "two" == "three"              // => false: 两个字符串不相等
+      "two" > "three"               // => true："tw" 在字母表中的索引大于 "th"
+      false == x > y                // => true: false 和 false 相等
+      // 逻辑运算符是对布尔值的合并或求反
+      x == 2 && y == 3              // => true：两个比较都是 true，&& 表示 "与"
+      x > 3 || y < 3                // => false: 两个比较不都是 true，|| 表示 "或"
+      !(x == y)                     // => true: ! 求反
+      console.log(false == x > y)   // => true
+      console.log(x == 2 && y == 3) // => true
+      console.log(x > 3 || y < 3)   // => false
+    </script>
+  </body>
+</html>
