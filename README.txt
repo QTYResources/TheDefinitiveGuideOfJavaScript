@@ -29,9 +29,11 @@ Chapter01 第1章 JavaScript概述
   07. DefinitionClass.html                                            ===> 定义类
   08. ClientJavaScript.html                                           ===> 客户端 JavaScript
   09. ModifyHtmlDocument.html                                         ===> 修改 HTML 文档
+  10. ModifyStyleAndClass.html                                        ===> 修改 HTML 元素的 style 和 class 属性
+  11. OnLoadEvent.html                                                ===> Window 对象的 onload 事件
+  12. jQueryDebug.html                                                ===> 使用 jQuery 重写 debug 方法
+  13. LoanCalculator.html                                             ===> 一个 JavaScript 贷款计算器
   
-
-
 第一部分 JavaScript 语言核心
 
 Chapter02 第2章 词法结构

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>Window对象的onload事件</title>
+  </head>
+  <body>
+    <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2625349285,3773358670&fm=26&gp=0.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592975934387&di=3bfa99c03d8d0b3a2c2b741b5c1f7302&imgtype=0&src=http%3A%2F%2Fszb.gdzjdaily.com.cn%2Fzjwb%2Fres%2F1%2F20170227%2F92291488184915907.jpg" />
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592975987714&di=4b3c06f3c592bd560d56106b009c2475&imgtype=0&src=http%3A%2F%2Fdingyue.ws.126.net%2FFsKjXtUGL2HszblEGA2s4xvgZeBxttf6kfamIqfK4GSx41553266992010.jpg" />
+    <script>
+      // "load" 事件只有在文档加载完成后才触发
+      // 通常需要等待 load 事件发生后才开始执行 JavaScript 代码
+      window.onload = function () { // 当文档加载完成时执行这里的代码
+        // 找到文档中所有的 <img> 标签
+        var images = document.getElementsByTagName('img');
+        console.log('images length: ' + images.length)
+        // 遍历 images，给每个节点的 "click" 事件添加事件处理程序
+        // 在点击图片的时候将图片隐藏
+        for (var i = 0; i < images.length; i++) {
+          var image = images[i]
+          console.log('addEventListener: ' + image.addEventListener)
+          if (image.addEventListener) { // 注册事件处理程序的另一种方法
+            image.addEventListener("click", hide, false)
+          } else {  // 兼容 IE8 及以前的版本
+            image.attachEvent("onclick", hide)
+          }
+          // 这便是上面注册的时间处理函数
+          function hide(event) {
+            event.target.style.visibility = 'hidden'
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

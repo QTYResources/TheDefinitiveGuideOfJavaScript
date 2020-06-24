@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>修改HTML元素的style和class属性</title>
+  </head>
+  <body>
+    <button onclick="hide(this, true); debug('hide button 1');">Hide1</button>
+    <button onclick="hide(this); debug('hide button 2');">Hide2</button>
+    <button onclick="highlight(this); debug('add hilite class to button');">Add Class</button>
+    <script>
+      function hide(e, reflow) {                // 通过 JavaScript 操作样式来隐藏元素 e
+        if (reflow) {                           // 如果第二个参数是 true
+          e.style.display = 'none'              // 隐藏这个元素，其所占的空间也随之消失
+        } else {                                // 否则
+          e.style.visibility = 'hidden'         // 将 e 隐藏，但是保留其所占的空间
+        }
+      }
+      function highlight(e) {                   // 通过设置 CSS 类来高亮显示 e 
+        // 简单地定义或追加 HTML 类属性
+        // 这里假设 CSS 样式表中已经有 "hilite" 类的定义
+        if (!e.className) {
+          e.className = 'hilite'
+        } else {
+          if (e.className.indexOf('hilite') == -1) {
+            e.className += ' hilite'
+          }
+        }
+      }
+      function debug(msg) {
+        // 通过查看 HTML 元素 id 属性来查找文档的调试部分
+        var log = document.getElementById('debuglog')
+        // 如果这个元素不存在，则创建一个
+        if (!log) {
+          log = document.createElement('div')     // 创建一个新的 <div> 元素
+          log.id = 'debuglog'                     // 给这个元素的 HTML id 赋值
+          log.innerHTML = "<h1>Debug Log</h1>"    // 定义初始内容
+          document.body.appendChild(log)          // 将其添加到文档的末尾
+        }
+        // 将消息保证在 <pre> 中，并添加至 log 中
+        var pre = document.createElement('pre')   // 创建 <pre> 标签
+        var text = document.createTextNode(msg)   // 将 msg 包装在一个文本节点中
+        pre.appendChild(text)                     // 将文本添加至 <pre>
+        log.appendChild(pre)                      // 将 <pre> 添加至 log
+      }
+    </script>
+  </body>
+</html>

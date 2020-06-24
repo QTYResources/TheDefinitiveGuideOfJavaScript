@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <title>jQuery重写debug方法</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      function debug(msg) {
+        var log = $("#debuglog")        // 找到要显示 msg 的元素
+        if (log.length == 0) {          // 如果不存在则创建之
+          log = $("<div id='debuglog'><h1>Debug Log</h1></dive>")
+          log.appendTo(document.body)   // 并将其追加到 body 里
+        }
+        log.append($("<pre/>").text(msg))   // 将 msg 包装在 <pre> 中，再追加到 log 里
+      }
+      debug("这是一条日志信息。")
+    </script>
+  </body>
+</html>
