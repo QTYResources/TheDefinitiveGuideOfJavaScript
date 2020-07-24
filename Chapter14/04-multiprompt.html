@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Show Modal Dialog</title>
+  </head>
+  <body>
+    <!--
+      这个 HTML 文件并不是独立的，这个文具由 showModalDialog() 所调用
+      它希望 window.dialogArguments 是一个由字符串组成的数组
+      数组的第一个元素将放置在对话框的顶部
+      剩下的每个元素是每行的输入框的标识
+      当单击 Okey 按钮的时候，返回一个数组，这个数组是由每个输入框的值组成
+      使用诸如这样的代码来调用：
+
+      var p = showModalDialog("multiprompt.html",
+                      ["Enter 3D point coordinates", "x", "y", "z"],
+                      "dialogwidth:400; dialogheight:300; resizable: yes")
+    -->
+    <form>
+      <fieldset id="fields"></fieldset> <!-- 对话框的正文部分 -->
+      <div> <!-- 关闭这个对话框的按钮 -->
+        <button onclick="okay()">Okay</button>  <!-- 设置返回值和关闭事件 -->
+        <button onclick="cancel()">Cancel</button>  <!-- 关闭时不带任何返回值 -->
+      </div>
+    </form>
+    <script>
+      // 创建对话框的主体部分，并在 fieldset 中显示出来
+      var args = dialogArguments
+      var text = "<legend>" + args[0] + "</legend>"
+      for (var i = 1; i < args.length; i++) {
+        text += "<label>" + args[i] + ": <input id='f" + i + "'></label><br>"
+      }
+      document.getElementById("fields").innerHTML = text
+      // 直接关闭这个对话框，不设置返回值
+      function cancel() { window.close() }
+      // 读取输入框的值，然后设置一个返回值，之后关闭
+      function okay() {
+        window.returnValue = [] // 返回一个数组
+        for (var i = 1; i < args.length; i++) { // 设置输入框的元素
+          window.returnValue[i - 1] = document.getElementById("f" + i).value
+        }
+        window.close()  // 关闭对话框，使 showModalDialog()  返回
+      }
+    </script>
+  </body>
+</html>

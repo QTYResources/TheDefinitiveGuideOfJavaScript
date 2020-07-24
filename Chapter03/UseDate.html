@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>使用Date对象</title>
+  </head>
+  <body>
+    <script>
+      var then = new Date(2011, 0, 1) // 2011年1月1日
+      var later = new Date(2011, 0, 1, 17, 10, 30)  // 同一天，当地时间 5:10:30pm
+      var now = new Date()  // 当前日期和时间
+      var elapsed = now - then  // 日期减法：计算时间间隔的毫秒数
+      console.log("elapsed: " + elapsed)
+      console.log("FullYear: " + later.getFullYear()) // => 2011
+      console.log("Month: " + later.getMonth())   // => 0: 从0开始计数的月份
+      console.log("Date: " + later.getDate()) // => 1: 从1开始计数的天数
+      console.log("Day: " + later.getDay()) // => 6: 得到星期几，0代表星期日，6代表星期一
+      console.log("Hours: " + later.getHours()) // => 当地时间 17:5pn
+      console.log("UTCHours: " + later.getUTCHours()) // 使用UTC表示小时的时间，基于时区
+    </script>
+  </body>
+</html>

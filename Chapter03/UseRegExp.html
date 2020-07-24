@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>正则表达式的使用</title>
+  </head>
+  <body>
+    <script>
+      var text = 'testing: 1, 2, 3'     // 文本示例
+      var pattern = /\d+/g              // 匹配所有包含一个或多个数字的实例
+      pattern.test(text)                // => true：匹配成功
+      text.search(pattern)              // => 9：首次匹配成功的位置
+      text.match(pattern)                // => ['1', '2', '3']：所有匹配组成的数组
+      text.replace(pattern, "#")        // => "testing: #, #, #"
+      text.split(/\D+/)                 // => ["", "1", "2", "3"]: 用非数字字符截取字符串
+      console.log(text.split(/\D+/))
+    </script>
+  </body>
+</html>

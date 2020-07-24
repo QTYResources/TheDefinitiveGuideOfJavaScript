@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>window.onload处理函数的使用</title>
+    <style>
+      /* 本页的 css 样式表 */
+      .reveal * { display: none; }
+      /* class="reveal" 的元素的子元素都不显示 */
+      .reveal *.handle { display: block; }
+      /* 除了 class="handle" 的元素 */
+    </style>
+    <script>
+      // 所有的页面逻辑在 onload 事件之后启动
+      window.onload = function() {
+        // 找到所有 class 名为 "reveal" 的容器元素
+        var elements = document.getElementsByClassName("reveal")
+        for (var i = 0; i < elements.length; i++) { // 对每个元素进行遍历
+          var elt = elements[i];
+          // 找到容器中的 "handle" 元素
+          var title = elt.getElementsByClassName("handle")[0]
+          // 当单击这个元素时，呈现剩下的内容
+          addRevealHandler(title, elt)
+        }
+        function addRevealHandler(title, elt) {
+          title.onclick = function() {
+            if (elt.className == "reveal") {
+              elt.className = "revealed"
+            } else if (elt.className == "revealed") {
+              elt.className = "reveal"
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <h1 class="handle">Click here to reveal hidden text</h1>
+      <p>This paragraph is hidden. It appears when you click on the title.</p>
+    </div>
+  </body>
+</html>

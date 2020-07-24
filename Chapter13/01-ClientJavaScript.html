@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>演示JavaScript对Html的控制</title>
+  </head>
+  <body>
+    <div id="timesTamp"></div>
+    <script>
+      // 设置location属性，从而跳转到新的Web页面
+      // window.location = "http://www.oreilly.com/"
+      // 等待两秒，然后说 hello
+      setTimeout(function () { alert("hello world"); }, 2000)
+      // 查找 id="timestamp" 的元素
+      var timestamp = document.getElementById("timesTamp")
+      // 如果元素为空，往里面插入当前的日期和时间
+      if (timestamp.firstChild == null) {
+        timestamp.appendChild(document.createTextNode(new Date().toString()))
+      }
+      // 显示修改目标元素的呈现
+      timestamp.style.backgroundColor = "yellow"
+      // 或者只改变类，让样式表指定具体内容
+      timestamp.className = "highlight"
+      // 当用户单击 timestamp 元素时，更新它的内容
+      timestamp.onclick = function() { this.innerHTML = new Date().toString() }
+    </script>
+  </body>
+</html>
